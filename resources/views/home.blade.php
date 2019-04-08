@@ -43,7 +43,7 @@
                               <textarea class="form-control" name="description" rows="3" cols="23" placeholder="Observações"></textarea>
                           </div>
                           <div class="modal-footer">
-                              <button type="submit" class="btn btn-primary">Salvar</button>
+                              <button type="submit" class="btn btn-primary">Confirmar</button>
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                           </div>
                       </form>
@@ -53,17 +53,28 @@
       </div>
   </div>
 
-  <div class="d-flex justify-content-between">
+  <div class="row">
     <form>
-      <div class="form-group">
-        <div class="input-group">
-            <input type="search" name="search" class="form-control" placeholder="Search">
-            <button type="button" class="btn bg-cyan text-white fas fa-search"></button>
-        </div>
-      </div>
+    <div class="col-sm-3 form-group text-right">
+        <input type="search" name="search" class="form-control" placeholder="Search">
+    </div>
+    <div class="form-input">
+      <button type="button" class="btn bg-cyan text-white"><span class="fas fa-search"></span></button>
+    </div>
+    <div class="col-sm-2 form-group" style="float: right; margin-top: -60px; margin-right: 50px;">
+      <label>Filtro</label>
+      <select class="form-control">
+        <option>Data / Hora</option>
+        <option>Código</option>
+        <option selected>Produto</option>
+        <option>Quantidade</option>
+        <option>Valor Unit.</option>
+        <option>Categoria</option>
+      </select>
+    </div>
     </form>
   </div>
-  <table class="table table-striped table-bordered" width="100">
+  <table class="table table-striped table-bordered" style="margin-left: -30px;">
     <thead>
       <tr>
         <th>DATA / HORA</th>
@@ -76,7 +87,8 @@
         <th>Movimentação</th>
       </tr>
     </thead>
-    <tbody><!--
+    <tbody>
+      <!--
       @@foreach($inputs as $input)
       <tr>
         <td>{ $input->created_at }}</td>
