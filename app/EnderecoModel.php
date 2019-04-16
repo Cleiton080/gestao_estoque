@@ -10,11 +10,15 @@ class EnderecoModel extends Model
 
     protected $guard = ['id'];
 
-    protected $fillable = [''];
+    protected $fillable = ['cep', 'logradouro', 'bairro', 'cidade', 'estado', 'fornecedor'];
+
+    public $timestamps = false;
 
 
-    public function postomon($cep)
+    public function postmon($cep)
     {
+        $endereco = file_get_contents('https://api.postmon.com.br/v1/cep/'.$cep);
 
+        return (array) json_decode($endereco);
     }
 }

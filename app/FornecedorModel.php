@@ -13,17 +13,17 @@ class FornecedorModel extends Model
 
     protected $guard = ['id'];
 
-    protected $fillable = [''];
+    protected $fillable = ['nome', 'descricao', 'imagem', 'fornecedor'];
 
 
     public function contato()
     {
-
+        return $this->hasOne(ContatoModel::class, 'fornecedor');
     }
 
     public function endereco()
     {
-
+        return $this->hasOne(EnderecoModel::class, 'fornecedor');
     }
 
     public function fisico()
