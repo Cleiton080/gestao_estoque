@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProdutoModel extends Model
 {
-    protected $table = 'product';
+    protected $table = 'produto';
 
     protected $guard = ['id'];
 
