@@ -19,7 +19,7 @@ class CreateEnderecoTable extends Migration
             $table->string('logradouro');
             $table->string('bairro', 90);
             $table->string('cidade', 90);
-            $table->char('estado', 2)->unique();
+            $table->char('estado', 2);
             $table->integer('fornecedor')->unique();
             
             $table->foreign('estado')->references('uf')->on('estado');

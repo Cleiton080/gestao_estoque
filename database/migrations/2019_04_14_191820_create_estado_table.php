@@ -15,7 +15,7 @@ class CreateEstadoTable extends Migration
     {
         Schema::create('estado', function (Blueprint $table) {
             $table->char('uf', 2)->primary();
-            $table->string('estado', 15);
+            $table->string('estado', 20);
         });
     }
 
