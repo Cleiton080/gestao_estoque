@@ -12,50 +12,69 @@ class FornecedorController extends Controller
 {
     private $fornecedores;
 
-    private $requisicao;
-
-
-    public function __construct(FornecedorModel $fornecedores, Request $requisicao)
+    public function __construct(FornecedorModel $fornecedores)
     {
         $this->fornecedores = $fornecedores;
-        $this->requisicao = $requisicao;
     }
 
     public function index()
     {
-        
+        return $this->fornecedores;
     }
 
-    public function adicionar(EnderecoModel $enderecos)
+    public function cadastro()
+    {
+        return view('cadastros.fornecedor');
+    }
+
+    public function adicionar(Request $request, EnderecoModel $enderecos)
     {
         DB::beginTransaction();
+        $fornecedor = $this->fornecedores->create($request->all());
+        $fornecedor->contato()->create($request->all());
         
-        $fornecedor = $this->fornecedores->create($this->requisicao->all());
-        $fornecedor->contato()->create($this->requisicao->all());
-
-        if(!$endereco = $enderecos->postmon($this->requisicao->input('cep'))):
+        if(!$endereco = $enderecos->postmon($request->input('cep'))):
             DB::rollback();
             return;
         endif;
 
         $fornecedor->endereco()->create($endereco);
 
+        if($request->input('tipoPessoa') == 1):
+                $fornecedor->fisico()->create($request->all());
+        else:
+            $fornecedor->juridico()->create($request->all());
+        endif;
         DB::commit();
 
-        return 'Fornecedor Adicionado';
+        return redirect()->back();
         
     }
 
-    public function atualizar()
+    public function atualizar(Request $request, EnderecoModel $enderecos)
     {
+        DB::beginTransaction();
+
+        $this->fornecedores->findOrFail($request->input('id'))->update($request->all());
+        $this->fornecedores->findOrFail($request->input('id'))->contato()->update($request->all());
+        
+        if(!$endereco = $nderecos->postmon($request->input('cep'))):
+            DB::rollback();
+            return;
+        endif;
+        
+        $fornecedor->endereco()->create($endereco);
+        DB::commit();
+
+        return redirect()->back();
 
     }
 
-    public function deletar()
+    public function deletar(Request $request)
     {
-        $this->fornecedores->findOrFail($this->requisicao->route('id'))->delete();
+        $this->fornecedores->findOrFail($request->route('id'))->delete();
 
-        return 'Fornecedor deletado';
+        return redirect()->back();
     }
 
 }

@@ -24,7 +24,7 @@
   </div>
 @endif
 <div class="container" style="padding-top: 1em;">
-  <form role="form" action="#" method="post">
+  <form role="form" action="{{ route('fornecedor.adicionar') }}" method="post">
     @csrf
     <fieldset>
       <div class="row">
@@ -42,12 +42,12 @@
       </div>
       <div class="row">
       <div class="col-md-6 form-group" id="fieldCompName">
-        <label for="razaoSocial">Razão Social</label>
-        <input type="text" name="comp_name" class="form-control" id="razaoSocial"/>
+        <label for="razao_social">Razão Social</label>
+        <input type="text" name="razao_social" class="form-control" id="razao_social"/>
       </div>
       <div class="col-md-5 form-group">
-        <label for="nomeFicticio">Nome <small class="text-danger">*</small></label>
-        <input type="text" name="name" class="form-control" id="nomeFicticio" required />
+        <label for="nome">Nome <small class="text-danger">*</small></label>
+        <input type="text" name="nome" class="form-control" id="nome" required />
       </div>
       </div>
     </fieldset>
@@ -56,11 +56,11 @@
       <div class="row">
         <div class="col-md-5 form-group">
           <label for="telefone">Telefone</label>
-          <input type="number" name="phone2" class="form-control" id="telefone" />
+          <input type="number" name="telefone" class="form-control" id="telefone" />
         </div>
         <div class="col-md-5 form-group">
           <label>Celular</label>
-          <input type="number" name="phone1" class="form-control" id="celular" />
+          <input type="number" name="celular" class="form-control" id="celular" />
         </div>
       <div class="col-md-5 form-group">
         <label for="email">E-mail</label>
@@ -73,7 +73,7 @@
       <div class="form-group">
         <label for="cep">CEP <small class="text-danger">*</small></label>
         <div class="input-group">
-          <input type="number" name="zipcode" class="form-control" id="cep" required />
+          <input type="number" name="cep" class="form-control" id="cep" required />
           <div class="input-group-prepend">
             <button type="button" class="btn btn-outline-primary" onclick="checkCep(event);">Verificar Cep</button>
           </div>
@@ -83,19 +83,19 @@
       <div class="row">
         <div class="col-md-5 form-group">
           <label for="estado">Estado <small class="text-danger">*</small></label>
-          <input type="text" name="state" class="form-control" id="estado" required disabled />
+          <input type="text" name="estado" class="form-control" id="estado" required disabled />
         </div>
         <div class="col-md-5 form-group">
           <label for="cidade">Cidade <small class="text-danger">*</small></label>
-          <input type="text" name="city" class="form-control" id="cidade" required disabled />
+          <input type="text" name="cidade" class="form-control" id="cidade" required disabled />
         </div>
         <div class="col-md-5 form-group">
           <label for="bairro">Bairro <small class="text-danger">*</small></label>
-          <input type="text" name="neighborhood" class="form-control" id="bairro"  required disabled />
+          <input type="text" name="bairro" class="form-control" id="bairro"  required disabled />
         </div>
         <div class="col-md-5 form-group">
           <label for="endereco">Endereço <small class="text-danger">*</small></label>
-          <input type="text" name="address" class="form-control" id="endereco" required disabled />
+          <input type="text" name="logradouro" class="form-control" id="endereco" required disabled />
         </div>
       </div>
     </fieldset>

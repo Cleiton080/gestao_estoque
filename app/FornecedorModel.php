@@ -28,11 +28,11 @@ class FornecedorModel extends Model
 
     public function fisico()
     {
-
+        return $this->hasOne(FornecedorFisicoModel::class, 'fornecedor');
     }
 
     public function juridico()
     {
-        
+        return $this->hasOne(FornecedorJuridicoModel::class, 'fornecedor');
     }
 }

@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class FornecedorFisicoModel extends Model
 {
-    protected $table = 'endereco_fisico';
+    protected $table = 'fornecedor_fisico';
 
     protected $guard = ['cpf'];
 
-    protected $fillable = [''];
+    protected $fillable = ['cpf'];
 
+    public $timestamps = false;
     
     public function fornecedor()
     {
