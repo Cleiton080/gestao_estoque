@@ -29,7 +29,7 @@ class CreateProdutoTable extends Migration
             $table->string('imagem', 40)->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->integer('fornecedor')->unique();
+            $table->integer('fornecedor');
             $table->foreign('fornecedor')->references('id')->on('fornecedor');
         });
     }
