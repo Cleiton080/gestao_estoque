@@ -10,12 +10,14 @@ class ProdutoModel extends Model
 
     protected $guard = ['id'];
 
-    protected $fillable = [''];
+    protected $fillable = ['codigo_barras', 'nome', 'marca', 'descricao', 'grade_x', 'grade_y',
+                           'ncm', 'valor_pago', 'valor_venda', 'quantidade', 'quantidade_min',
+                           'imagem', 'fornecedor'];
 
 
     public function categorias()
     {
-
+        return $this->hasMany(CategoriaModel::class, 'categoria');
     }
 
     public function fornecedor()

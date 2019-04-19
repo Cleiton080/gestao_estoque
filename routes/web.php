@@ -9,6 +9,14 @@
 Route::get('/produtos', 'ProdutoController@index')->name('home');
 
 /********************************
+ *          Categoria
+ ********************************/
+
+Route::get('/produtos/categoria', 'CategoriaController@index')->name('categoria');
+
+Route::post('/produtos/categoria/adicionar', 'CategoriaController@adicionar')->name('categoria.adicionar');
+
+/********************************
  *          Fornecedor
  ********************************/
 

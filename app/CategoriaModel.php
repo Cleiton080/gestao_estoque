@@ -10,11 +10,11 @@ class CategoriaModel extends Model
 
     protected $guard = ['id'];
 
-    protected $fillable = [''];
+    protected $fillable = ['nome', 'descricao'];
 
     
     public function produtos()
     {
-
+        $this->belongsTo(ProdutoModel::class);
     }
 }
