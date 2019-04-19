@@ -6,7 +6,11 @@
  *          Produtos
  ********************************/
 
-Route::get('/produtos', 'ProdutoController@index')->name('home');
+Route::get('/produtos', 'ProdutoController@index')->name('produto');
+
+Route::get('/produtos/cadastro', 'ProdutoController@cadastro')->name('produto.cadastro');
+
+Route::post('/produtos/adicionar', 'ProdutoController@adicionar')->name('produto.adicionar');
 
 /********************************
  *          Categoria
